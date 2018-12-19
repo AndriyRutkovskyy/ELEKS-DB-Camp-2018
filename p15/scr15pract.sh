@@ -73,9 +73,9 @@ getCpuInfo(){
 	let "tCPUidle=$idle+$iowait"
 	let "tCPUusage=$tCPUtime-$tCPUidle"
 
-	tCPUsage=$(echo "$tCPUusage * 100 / $tCPUtime" | bc)
+	cpuUsage=$(echo "$tCPUusage * 100 / $tCPUtime" | bc)
 
-	if [ $tCPUsage -ge 50 ]; then
+	if [ $cpuUsage -ge 50 ]; then
 		status="CRITICAL"
 	else
 		status="NORMAL"
